@@ -26,7 +26,7 @@ def decode(digits, base):
     #     print("base: ",base)
     #     print("exponent: ",exponent)
     #     print("key_list: ",key_list)
-    
+
     # TODO: Decode digits from binary (base 2)
     if base == 2: 
         digits_to_list = (list(map(int, digits)))
@@ -78,14 +78,43 @@ def encode(number, base):
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
     # TODO: Encode number in binary (base 2)
-    # ...
+
+    if base == 2:
+        encoded_number = ''
+        while number != 0:
+            # Divides the number with the base and ignores the remainder
+            quotient = number // base
+            # Manually set the remainder seperatly 
+            remainder = number % base
+            # Putting the remainder in the string for results
+            encoded_number += str(remainder)
+            number = quotient
+        return (encoded_number[::-1])
+
     # TODO: Encode number in hexadecimal (base 16)
-    # ...
+
     # TODO: Encode number in any base (2 up to 36)
 
-    # if base = 64:
-    #     pass
-    # ...
+    list_of_printable = string.printable
+    encoded_number = ''
+
+    while number != 0:
+        remainder = number % base
+        print("remainder: ", remainder)
+        quotient = number // base
+        print("quotient: ", quotient)
+        if remainder > 9:
+            # Sets the remainder to the index of the list
+            remainder = list_of_printable[remainder]
+            # Add to string
+            encoded_number += str(remainder)
+            # Determines to keep looping
+            number = quotient
+        else:
+            encoded_number += str(remainder)
+            number = quotient
+    # Reverse the string
+    return (encoded_number[::-1])
 
 
 def convert(digits, base1, base2):
@@ -111,7 +140,8 @@ def main():
     """Read command-line arguments and convert given digits between bases."""
     import sys
     args = sys.argv[1:]  # Ignore script file name
-    print(decode('yeet', 36))
+    print("Decode Test: ", decode('yeet', 36))
+    print("Encode Test: ", encode(48, 16))
     if len(args) == 3:
         digits = args[0]
         base1 = int(args[1])
