@@ -134,6 +134,9 @@ def convert(digits, base1, base2):
     # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
     # ...
+    decoded_digits = decode(digits, base1)
+    encoded_digits = encode(decoded_digits, base2)
+    return encoded_digits
 
 
 def main():
