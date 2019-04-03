@@ -8,8 +8,7 @@ import string
 # string.ascii_uppercase is 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 # string.ascii_letters is ascii_lowercase + ascii_uppercase
 # string.printable is digits + ascii_letters + punctuation + whitespace
-
-
+    
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
     digits: str -- string representation of number (in given base)
@@ -17,12 +16,56 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
+
+    # key_list = string.printable
+    # exponent = len(digits) - 1
+
+    # for digit in digits:
+    #     print("digit: ",digit)
+    #     print("digits: ",digits)
+    #     print("base: ",base)
+    #     print("exponent: ",exponent)
+    #     print("key_list: ",key_list)
+    
     # TODO: Decode digits from binary (base 2)
-    # ...
+    if base == 2: 
+        digits_to_list = (list(map(int, digits)))
+        sum = 0
+        power = len(digits_to_list) - 1
+
+        for index in digits_to_list:
+            sum += index * (base ** power)
+            power -= 1
+        print(sum)
+    
     # TODO: Decode digits from hexadecimal (base 16)
-    # ...
+    if base == 16:
+        list_of_hex = string.hexdigits
+        digits_to_list_two = (list (digits))
+        power = len(digits_to_list_two) - 1
+        sum = 0
+
+        for char in digits_to_list_two:
+            hex_index = list_of_hex.index(char)
+            sum += hex_index * (base ** power)
+            power -= 1
+        print(sum)
+
     # TODO: Decode digits from any base (2 up to 36)
-    # ...
+    list_of_printable = string.printable
+    list_of_chars = (list(digits))
+    power = len(list_of_chars) - 1
+    sum = 0 
+
+
+    for char in list_of_chars:
+        char_index = list_of_printable.index(char)
+        sum += char_index * (base ** power)
+        power -= 1
+
+
+    return sum
+
 
 
 def encode(number, base):
@@ -39,6 +82,9 @@ def encode(number, base):
     # TODO: Encode number in hexadecimal (base 16)
     # ...
     # TODO: Encode number in any base (2 up to 36)
+
+    # if base = 64:
+    #     pass
     # ...
 
 
@@ -65,6 +111,7 @@ def main():
     """Read command-line arguments and convert given digits between bases."""
     import sys
     args = sys.argv[1:]  # Ignore script file name
+    print(decode('yeet', 36))
     if len(args) == 3:
         digits = args[0]
         base1 = int(args[1])
