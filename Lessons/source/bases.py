@@ -88,6 +88,7 @@ def encode(number, base):
             remainder = number % base
             # Putting the remainder in the string for results
             encoded_number += str(remainder)
+            # Determines to keep looping
             number = quotient
         return (encoded_number[::-1])
 
