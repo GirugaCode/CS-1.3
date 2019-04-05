@@ -14,14 +14,16 @@ def factorial(n):
 
 def factorial_iterative(n):
     # TODO: implement the factorial function iteratively here
-    # 
+    # once implemented, change factorial (above) to call factorial_iterative
+    # to verify that your iterative implementation passes all tests
+
     result = 1
+    # Turns the number into a list of its range which starts from 1
     n_to_list = list(range(1, n+1))
+    # Iterates through the list and updates the result
     for num in n_to_list:
         result = result * num
     return result
-    # once implemented, change factorial (above) to call factorial_iterative
-    # to verify that your iterative implementation passes all tests
 
 
 def factorial_recursive(n):
