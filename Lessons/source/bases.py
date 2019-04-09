@@ -16,17 +16,6 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-
-    # key_list = string.printable
-    # exponent = len(digits) - 1
-
-    # for digit in digits:
-    #     print("digit: ",digit)
-    #     print("digits: ",digits)
-    #     print("base: ",base)
-    #     print("exponent: ",exponent)
-    #     print("key_list: ",key_list)
-
     # TODO: Decode digits from binary (base 2)
     if base == 2: 
         digits_to_list = (list(map(int, digits)))

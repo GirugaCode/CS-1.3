@@ -17,10 +17,6 @@ def linear_search_iterative(array, item):
 
 
 def linear_search_recursive(array, item, index=0):
-    # TODO: implement linear search recursively here    
-    # once implemented, change linear_search to call linear_search_recursive
-    # to verify that your recursive implementation passes all tests
-
     # Return None if the item was never in the array
     if not array:
         return None 
@@ -41,14 +37,40 @@ def binary_search(array, item):
 
 
 def binary_search_iterative(array, item):
-    # TODO: implement binary search iteratively here
-    pass
-    # once implemented, change binary_search to call binary_search_iterative
-    # to verify that your iterative implementation passes all tests
+    # Setting up the first and last index of array
+    first_index = 0
+    last_index = len(array) - 1
+    
 
+    while first_index <= last_index:
+        # Find the middle point of the list index
+        middle_index = (first_index + last_index) // 2
+        # Set the middle_index into a variable to change
+        middle_value = array[middle_index]
+
+        # if item is already in the middle, return it
+        if item == middle_value:
+            return middle_index
+        # if the item is more than the middle index then focus on the middle to right of th array
+        if item > middle_value:
+            first_index = middle_index + 1
+        # if the item is less than the middle index then focus on the middle to left of the array
+        if item < middle_value:
+            last_index = middle_index - 1
 
 def binary_search_recursive(array, item, left=None, right=None):
     # TODO: implement binary search recursively here
     pass
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
+
+
+def main():
+    """Read command-line arguments and convert given digits between bases."""
+    import sys
+    names = ['Winnie', 'Kojin', 'Brian', 'Nabil', 'Julia', 'Alex', 'Nick']
+    yeet = binary_search(names, 'Alex')
+    print(yeet)
+
+if __name__ == '__main__':
+    main()
