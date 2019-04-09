@@ -32,8 +32,8 @@ def binary_search(array, item):
     """return the index of item in sorted array or None if item is not found"""
     # implement binary_search_iterative and binary_search_recursive below, then
     # change this to call your implementation to verify it passes all tests
-    return binary_search_iterative(array, item)
-    # return binary_search_recursive(array, item)
+    # return binary_search_iterative(array, item)
+    return binary_search_recursive(array, item)
 
 
 def binary_search_iterative(array, item):
@@ -63,6 +63,32 @@ def binary_search_recursive(array, item, left=None, right=None):
     pass
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
+
+    # Set the values of left and right as long as one of them are None
+    if left == None or right == None:
+        left = 0
+        right = len(array) - 1
+
+    # Same logic for the iterative approach
+    middle_index = (right + left) // 2
+    median_value = array[middle_index]
+
+    if item == median_value:
+        return middle_index
+
+    if item > median_value:
+        left = middle_index + 1
+
+    if item < median_value:
+        right = middle_index - 1
+
+    # if the left and right values collide, set the item to where it collided. Return
+    if right == left:
+        if array[right] == item:
+            return right
+        return None
+
+    return binary_search_recursive(array, item, left, right)
 
 
 def main():
