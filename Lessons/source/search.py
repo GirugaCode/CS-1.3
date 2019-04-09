@@ -59,11 +59,6 @@ def binary_search_iterative(array, item):
             last_index = middle_index - 1
 
 def binary_search_recursive(array, item, left=None, right=None):
-    # TODO: implement binary search recursively here
-    pass
-    # once implemented, change binary_search to call binary_search_recursive
-    # to verify that your recursive implementation passes all tests
-
     # Set the values of left and right as long as one of them are None
     if left == None or right == None:
         left = 0
