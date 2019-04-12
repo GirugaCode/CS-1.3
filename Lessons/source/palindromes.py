@@ -31,6 +31,7 @@ def is_palindrome_iterative(text):
     # Keeps track of the first and last index of the word
     first_index = 0
     last_index = len(text) - 1
+
     # As long as the first index is less than the last index
     while first_index < last_index:
         # Return False if the first and last indexes to not match
