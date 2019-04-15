@@ -79,13 +79,13 @@ class LinkedList(object):
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node at the given index and return its data
-        node = self.head
+        current_node = self.head
         count = 0
-        while node != None:
+        while current_node != None:
             if count == index:
-                return node.data
+                return current_node.data
             count += 1
-            node = node.next
+            current_node = current_node.next
         return None
         
     def insert_at_index(self, index, item):
@@ -97,6 +97,38 @@ class LinkedList(object):
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
+        
+        # Instatiate a Counter and the start of the current node
+        # Create a new Node which is going to be inserted
+        # While the Counter is not the index
+            # Increment the counter by one
+            # set the node to point to the next to keep traversing
+            # Used to find where to insert it
+        # Set the new Node to be next node
+        # Use the next to refer to the new Node
+        # Increase the list by one
+
+        # Checks if we want to insert the item in the beginning
+        if index == 0:
+            self.prepend(item)
+            return
+        # Checks if we want to insert the item at the end of the list
+        elif index == self.size:
+            self.append(item)
+            return
+        # Inserts the new node at a given index
+        else:
+            current_node = self.head
+            node_index_count = 0 
+            new_node = Node(item) # Creates a new node
+            while node_index_count != index: # Traversing linked list until it finds where you should insert
+                node_index_count += 1
+                current_node = current_node.next
+            current_node.next = new_node.next
+            current_node.next = new_node
+            self.size += 1
+
+
 
 
     def append(self, item):
