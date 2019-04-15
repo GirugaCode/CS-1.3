@@ -86,6 +86,7 @@ def binary_search_recursive(array, item, left=None, right=None):
     return binary_search_recursive(array, item, left, right)
 
 
+
 def main():
     """Read command-line arguments and convert given digits between bases."""
     import sys
