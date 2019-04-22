@@ -33,8 +33,11 @@ class LinkedStack(object):
         return self.list.size
 
     def push(self, item):
-        """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        """
+        Insert the given item on the top of this stack.
+        Runtime: O(1)
+        Condition: Adds the given item to the list
+        """
         # TODO: Push given item
         self.list.prepend(item)
 
@@ -48,9 +51,12 @@ class LinkedStack(object):
         return self.list.head.data
 
     def pop(self):
-        """Remove and return the item on the top of this stack,
+        """
+        Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Runtime: O(1)
+        Condition: Checks if the list is empty then removes the item in the from of the list
+        """
         # TODO: Remove and return top item, if any
         if self.is_empty():
             raise ValueError('Stack is empty')
@@ -87,8 +93,11 @@ class ArrayStack(object):
         return len(self.list)
 
     def push(self, item):
-        """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        """
+        Insert the given item on the top of this stack.
+        Runtime: O(1)
+        Condition: Adds the given item to the list
+        """
         # TODO: Insert given item
         self.list.append(item)
 
@@ -102,9 +111,12 @@ class ArrayStack(object):
             return self.list[-1]
 
     def pop(self):
-        """Remove and return the item on the top of this stack,
+        """
+        Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Runtime: O(1)
+        Condition: Checks if the list is empty then removes the item in the from of the list
+        """
         # TODO: Remove and return top item, if any
         if self.is_empty():
             raise ValueError("Stack is Empty")

@@ -33,8 +33,11 @@ class LinkedQueue(object):
         return self.list.size
 
     def enqueue(self, item):
-        """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        """
+        Insert the given item at the back of this queue.
+        Runtime: O(1)
+        Condition: Adding an item to the back of the queue happens once
+        """
         # TODO: Insert given item
         return self.list.append(item)
 
@@ -48,12 +51,16 @@ class LinkedQueue(object):
             return self.list.head.data
 
     def dequeue(self):
-        """Remove and return the item at the front of this queue,
+        """
+        Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Runtime: O(1)
+        Condition: Checks if list is empty and assigns the head to the next. 
+        Then decreases the size of list by one
+        """
         # TODO: Remove and return front item, if any
         if self.is_empty():
-            raise ValueError('Stack is empty')
+            raise ValueError('Stack is ,empty')
         data = self.list.head.data
         self.list.head = self.list.head.next
         self.list.size -= 1
@@ -87,8 +94,11 @@ class ArrayQueue(object):
         return len(self.list)
 
     def enqueue(self, item):
-        """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        """
+        Insert the given item at the back of this queue.
+        Runtime: O(1)
+        Condition: Adding an item to the list
+        """
         # TODO: Insert given item
         self.list.append(item)
 
@@ -102,9 +112,12 @@ class ArrayQueue(object):
             return self.list[0]
 
     def dequeue(self):
-        """Remove and return the item at the front of this queue,
+        """
+        Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Runtime: O(1)
+        Condition: Checks if the list is empty then removes the item in the from of the list
+        """
         # TODO: Remove and return front item, if any
         if self.is_empty():
             raise ValueError("Queue is Empty")
