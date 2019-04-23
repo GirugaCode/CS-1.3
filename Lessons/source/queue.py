@@ -99,13 +99,13 @@ class ArrayQueue(object):
         Runtime: O(1)
         Condition: Adding an item to the list
         """
-        # TODO: Insert given item
+        # Insert given item
         self.list.append(item)
 
     def front(self):
         """Return the item at the front of this queue without removing it,
         or None if this queue is empty."""
-        # TODO: Return front item, if any
+        # Return front item, if any
         if self.is_empty():
             return None
         else:
@@ -118,7 +118,7 @@ class ArrayQueue(object):
         Runtime: O(1)
         Condition: Checks if the list is empty then removes the item in the from of the list
         """
-        # TODO: Remove and return front item, if any
+        # Remove and return front item, if any
         if self.is_empty():
             raise ValueError("Queue is Empty")
         else:

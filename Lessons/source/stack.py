@@ -21,7 +21,7 @@ class LinkedStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        # TODO: Check if empty
+        # Check if empty
         if self.list.head == None:
             return True
         else: 
@@ -29,7 +29,7 @@ class LinkedStack(object):
 
     def length(self):
         """Return the number of items in this stack."""
-        # TODO: Count number of items
+        # Count number of items
         return self.list.size
 
     def push(self, item):
@@ -38,14 +38,14 @@ class LinkedStack(object):
         Runtime: O(1)
         Condition: Adds the given item to the list
         """
-        # TODO: Push given item
+        # Push given item
         self.list.prepend(item)
 
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        # TODO: Return top item, if any
+        # Return top item, if any
         if self.is_empty():
             return None
         return self.list.head.data
@@ -57,7 +57,7 @@ class LinkedStack(object):
         Runtime: O(1)
         Condition: Checks if the list is empty then removes the item in the from of the list
         """
-        # TODO: Remove and return top item, if any
+        # Remove and return top item, if any
         if self.is_empty():
             raise ValueError('Stack is empty')
         data = self.list.head.data
@@ -84,12 +84,12 @@ class ArrayStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        # TODO: Check if empty
+        # Check if empty
         return len(self.list) == 0
 
     def length(self):
         """Return the number of items in this stack."""
-        # TODO: Count number of items
+        # Count number of items
         return len(self.list)
 
     def push(self, item):
@@ -98,13 +98,13 @@ class ArrayStack(object):
         Runtime: O(1)
         Condition: Adds the given item to the list
         """
-        # TODO: Insert given item
+        # Insert given item
         self.list.append(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        # TODO: Return top item, if any
+        # Return top item, if any
         if self.is_empty():
             return None
         else:
@@ -117,7 +117,7 @@ class ArrayStack(object):
         Runtime: O(1)
         Condition: Checks if the list is empty then removes the item in the from of the list
         """
-        # TODO: Remove and return top item, if any
+        # Remove and return top item, if any
         if self.is_empty():
             raise ValueError("Stack is Empty")
         else:
