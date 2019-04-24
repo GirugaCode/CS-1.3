@@ -50,29 +50,43 @@ class SetTest(unittest.TestCase):
         test_set_one = Set(['A','B','C','D'])
         test_set_two = Set(['E','F','G','H'])
         union = test_set_one.union(test_set_two)
-        union_items = union.get_items()
-        self.assertCountEqual(union_items, ['A','B','C','D','E','F','G','H'])
+        assert union.size == 8
+        assert union.contains('A') == True
+        assert union.contains('B') == True
+        assert union.contains('C') == True
+        assert union.contains('D') == True
+        assert union.contains('E') == True
+        assert union.contains('F') == True
+        assert union.contains('G') == True
+        assert union.contains('H') == True
     
     def test_intersection(self):
         test_set_one = Set(['A','B','C','D'])
-        test_set_two = Set(['A','F','C','H'])
-        intersection = test_set_one.difference(test_set_two)
-        intersection_items = intersection.get_items()
-        self.assertCountEqual(union_items, ['A','C'])
+        test_set_two = Set(['A','E','C','F'])
+        intersection_set = test_set_one.intersection(test_set_two)
+        assert intersection_set.size == 2
+        assert intersection_set.contains('A') == True
+        assert intersection_set.contains('C') == True
+        assert intersection_set.contains('F') == False
+
     
     def test_difference(self):
         test_set_one = Set(['A','B','C','D'])
         test_set_two = Set(['A','F','C','H'])
         difference = test_set_one.difference(test_set_two)
-        difference_items = difference.get_items()
-        self.assertCountEqual(difference_items, ['B', 'D'])
+        assert difference.size == 2
+        assert difference.contains('B') == True
+        assert difference.contains('D') == True
     
     def test_is_subset(self):
         test_set = Set(['A','B','C','D'])
         subset = Set(['A', 'B'])
-        assert test_set.is_subset(subset) == True
-        subset = Set(['E','F','G'])
-        assert test_set.is_subset() == False
+        is_subset = test_set.is_subset(subset)
+        assert type(is_subset) == bool
+        assert subset.is_subset(test_set) == True
+
+        subset.add('Z')
+        assert subset.is_subset(test_set) == False
 
 if __name__ == '__main__':
     unittest.main()
