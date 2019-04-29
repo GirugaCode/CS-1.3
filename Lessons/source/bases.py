@@ -16,7 +16,7 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # TODO: Decode digits from binary (base 2)
+    # Decode digits from binary (base 2)
     if base == 2: 
         digits_to_list = (list(map(int, digits)))
         sum = 0
@@ -27,27 +27,28 @@ def decode(digits, base):
             power -= 1
         print(sum)
     
-    # TODO: Decode digits from hexadecimal (base 16)
+    # Decode digits from hexadecimal (base 16)
     if base == 16:
         list_of_hex = string.hexdigits
         digits_to_list_two = (list (digits))
         power = len(digits_to_list_two) - 1
         sum = 0
 
+        # Iterates through the digits and increases the sum
         for char in digits_to_list_two:
             hex_index = list_of_hex.index(char)
             sum += hex_index * (base ** power)
             power -= 1
         print(sum)
 
-    # TODO: Decode digits from any base (2 up to 36)
+    # Decode digits from any base (2 up to 36)
     list_of_printable = string.printable
-    list_of_chars = (list(digits))
-    power = len(list_of_chars) - 1
+    
+    power = len(digits) - 1
     sum = 0 
 
 
-    for char in list_of_chars:
+    for char in digits:
         char_index = list_of_printable.index(char)
         sum += char_index * (base ** power)
         power -= 1
@@ -66,7 +67,7 @@ def encode(number, base):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
-    # TODO: Encode number in binary (base 2)
+    # Encode number in binary (base 2)
 
     if base == 2:
         encoded_number = ''
@@ -81,9 +82,7 @@ def encode(number, base):
             number = quotient
         return (encoded_number[::-1])
 
-    # TODO: Encode number in hexadecimal (base 16)
-
-    # TODO: Encode number in any base (2 up to 36)
+    # Encode number in any base (2 up to 36)
 
     list_of_printable = string.printable
     encoded_number = ''
@@ -116,13 +115,13 @@ def convert(digits, base1, base2):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
-    # TODO: Convert digits from base 2 to base 16 (and vice versa)
+    # Convert digits from base 2 to base 16 (and vice versa)
     # ...
-    # TODO: Convert digits from base 2 to base 10 (and vice versa)
+    # Convert digits from base 2 to base 10 (and vice versa)
     # ...
-    # TODO: Convert digits from base 10 to base 16 (and vice versa)
+    # Convert digits from base 10 to base 16 (and vice versa)
     # ...
-    # TODO: Convert digits from any base to any base (2 up to 36)
+    # Convert digits from any base to any base (2 up to 36)
     # ...
     decoded_digits = decode(digits, base1)
     encoded_digits = encode(decoded_digits, base2)

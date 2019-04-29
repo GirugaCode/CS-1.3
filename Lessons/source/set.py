@@ -23,7 +23,7 @@ class Set():
 
     def add(self, element):
         """Adds an element to the set."""
-        self.items.set(element, element)
+        self.items.set(element, element) # Think of the data as a tuple, they both point to the same place in memeory
         self.size += 1
     
     def remove(self, element):
