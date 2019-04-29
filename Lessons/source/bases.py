@@ -43,7 +43,6 @@ def decode(digits, base):
 
     # Decode digits from any base (2 up to 36)
     list_of_printable = string.printable
-    
     power = len(digits) - 1
     sum = 0 
 
