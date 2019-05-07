@@ -34,7 +34,7 @@ def decode(digits, base):
         power = len(digits_to_list_two) - 1
         sum = 0
 
-        # Iterates through the digits and increases the sum
+        # Iterates through the digits and increases the sum by each digit * base^power
         for char in digits_to_list_two:
             hex_index = list_of_hex.index(char)
             sum += hex_index * (base ** power)
