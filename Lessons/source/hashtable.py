@@ -19,6 +19,12 @@ class HashTable(object):
         """Return a string representation of this hash table."""
         return 'HashTable({!r})'.format(self.items())
 
+    def __iter__(self):
+        """Used __iter__ method to optimize space"""
+        for bucket in self.buckets:
+            for item in bucket.items():
+                yield item
+
     def _bucket_index(self, key):
         """Return the bucket index where the given key would be stored."""
         return hash(key) % len(self.buckets)
@@ -40,9 +46,8 @@ class HashTable(object):
         """
         # Collect all keys in each of the buckets
         all_keys = []
-        for bucket in self.buckets:
-            for key, value in bucket.items():
-                all_keys.append(key)
+        for key,value in self:
+            all_keys.append(key)
         return all_keys
 
     def values(self):
@@ -53,9 +58,8 @@ class HashTable(object):
         """
         # Collect all values in each of the buckets
         all_values = []
-        for bucket in self.buckets:
-            for key, value in bucket.items():
-                all_values.append(value)
+        for key, value in self:
+            all_values.append(value)
         return all_values
 
     def items(self):
@@ -66,8 +70,8 @@ class HashTable(object):
         """
         # Collect all pairs of key-value entries in each of the buckets
         all_items = []
-        for bucket in self.buckets:
-            all_items.extend(bucket.items())
+        for item in self:
+            all_items.append(item)
         return all_items
 
     def length(self):

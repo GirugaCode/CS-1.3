@@ -115,8 +115,8 @@ class ArrayQueue(object):
         """
         Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Runtime: O(1)
-        Condition: Checks if the list is empty then removes the item in the from of the list
+        Runtime: O(n)
+        Condition: Checks if the list is empty then removes the item in the from of the list with the pop method
         """
         # Remove and return front item, if any
         if self.is_empty():

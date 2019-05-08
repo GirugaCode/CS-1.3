@@ -1,7 +1,6 @@
 #!python
 
 from hashtable import HashTable
-from linkedlist import LinkedList
 
 class Set():
     
@@ -34,36 +33,48 @@ class Set():
     def union(self, other_set):
         """ Returns a set that has that is a unity of two seperate sets"""
         union_set = Set()
-        for element in self.items.keys():
-            union_set.add(element)
-        for element in other_set.items.keys():
-            union_set.add(element)
+        for key, value in self.items:
+            union_set.add(key)
+        for key, value in other_set.items:
+            union_set.add(key)
         return union_set
 
     def intersection(self, other_set):
         """Returns a set that has common elements between two sets"""
         intersection_set = Set()
         
-        for element in self.items.keys():
-            if element in other_set.items.keys():
-                intersection_set.add(element)
+        for key, value in self.items:
+            if other_set.contains(key):
+                intersection_set.add(key)
         return intersection_set
+        # for element in self.items.keys():
+        #     if other_set.contains(element):
+        #         intersection_set.add(element)
+        # return intersection_set
 
     def difference(self, other_set):
         """Returns the unique elements in the first set"""
         difference_set = Set()
 
-        for element in self.items.keys():
-            if element not in other_set.items.keys():
-                difference_set.add(element)
+        for key, value in self.items:
+            if not other_set.contains(key):
+                difference_set.add(key)
         return difference_set
+        # for element in self.items.keys():
+        #     if not other_set.contains(element):
+        #         difference_set.add(element)
+        # return difference_set
 
     def is_subset(self, other_set):
         """Checks if the set contains a part of the other set"""
-        for element in self.items.keys():
-            if element not in other_set.items.keys():
+        for key, value in self.items:
+            if not other_set.contains(key):
                 return False
         return True
+        # for element in self.items.keys():
+        #     if not other_set.contains(element):
+        #         return False
+        # return True
 
 
     
