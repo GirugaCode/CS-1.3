@@ -17,7 +17,7 @@ class SetTest(unittest.TestCase):
         assert test_set.contains('Banana') == True
         assert test_set.contains('Cactus') == True
         assert test_set.contains('Durian') == True
-        assert test_set.contains('E') == False
+        assert test_set.contains('Eggs') == False
         assert test_set.contains('Z') == False
 
     def test_add(self):
@@ -48,21 +48,21 @@ class SetTest(unittest.TestCase):
     
     def test_union(self):
         test_set_one = Set(['Apple','Banana','Cactus','Durian'])
-        test_set_two = Set(['E','F','G','H'])
+        test_set_two = Set(['Eggs','F','G','H'])
         union = test_set_one.union(test_set_two)
         assert union.size == 8
         assert union.contains('Apple') == True
         assert union.contains('Banana') == True
         assert union.contains('Cactus') == True
         assert union.contains('Durian') == True
-        assert union.contains('E') == True
+        assert union.contains('Eggs') == True
         assert union.contains('F') == True
         assert union.contains('G') == True
         assert union.contains('H') == True
     
     def test_intersection(self):
         test_set_one = Set(['Apple','Banana','Cactus','Durian'])
-        test_set_two = Set(['Apple','E','Cactus','F'])
+        test_set_two = Set(['Apple','Eggs','Cactus','F'])
         intersection_set = test_set_one.intersection(test_set_two)
         assert intersection_set.size == 2
         assert intersection_set.contains('Apple') == True

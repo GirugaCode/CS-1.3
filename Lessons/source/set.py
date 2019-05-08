@@ -47,10 +47,6 @@ class Set():
             if other_set.contains(key):
                 intersection_set.add(key)
         return intersection_set
-        # for element in self.items.keys():
-        #     if other_set.contains(element):
-        #         intersection_set.add(element)
-        # return intersection_set
 
     def difference(self, other_set):
         """Returns the unique elements in the first set"""
@@ -60,10 +56,6 @@ class Set():
             if not other_set.contains(key):
                 difference_set.add(key)
         return difference_set
-        # for element in self.items.keys():
-        #     if not other_set.contains(element):
-        #         difference_set.add(element)
-        # return difference_set
 
     def is_subset(self, other_set):
         """Checks if the set contains a part of the other set"""
@@ -71,10 +63,3 @@ class Set():
             if not other_set.contains(key):
                 return False
         return True
-        # for element in self.items.keys():
-        #     if not other_set.contains(element):
-        #         return False
-        # return True
-
-
-    
