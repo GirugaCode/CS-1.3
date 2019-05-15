@@ -1,4 +1,5 @@
 #!python
+import time
 
 def contains(text, pattern):
     """
@@ -40,6 +41,9 @@ def find_all_indexes(text, pattern):
     Runtime: O(n)
     Condition: Iterates over the text to find the pattern
     """
+    start = time.time()
+    
+    
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
 
@@ -50,12 +54,16 @@ def find_all_indexes(text, pattern):
     if pattern == '':
         for index in range(0, len(text)):
             pattern_indexes.append(index)
+        finish = time.time() - start
+        print(finish)
         return pattern_indexes
 
     # Iterates through and appends the index if the pattern finds the match for all indexes
     for index, _ in enumerate(text):
         if pattern == text[index: (index + len(pattern))]:
                 pattern_indexes.append(index)
+    finish = time.time() - start
+    print(finish)
     return pattern_indexes
 
 def test_string_algorithms(text, pattern):
