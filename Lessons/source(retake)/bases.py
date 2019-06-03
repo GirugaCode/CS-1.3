@@ -17,6 +17,7 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
+
     # Decode digits from binary (base 2)
     if base == 2: 
         # Keep track of the sum of the numbers
@@ -34,6 +35,7 @@ def decode(digits, base):
             power -= 1
         # Return the sum
         print("Base 2:", sum)
+
     # Decode digits from hexadecimal (base 16)
     if base == 16:
         sum = 0
@@ -66,12 +68,57 @@ def encode(number, base):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
-    # TODO: Encode number in binary (base 2)
-    # ...
-    # TODO: Encode number in hexadecimal (base 16)
-    # ...
-    # TODO: Encode number in any base (2 up to 36)
-    # ...
+    # Encode number in binary (base 2)
+    if base == 2:
+        result = ''
+        while number != 0:
+            # Divides the number with the base and ignores the remainder
+            quotient = number // base
+            print('Quotient:', quotient)
+            # Manually set the remainder seperatly 
+            remainder = number % base
+            print('Remainder:', remainder)
+            # Putting the remainder in the string for results
+            result += str(remainder)
+            print('Encoded Number:', result)
+            # Determines to keep looping
+            number = quotient
+            print('Number:', number)
+        # Reverse the lists
+        return (result[::-1])
+
+    # Encode number in hexadecimal (base 16)
+    if base == 16:
+        result = ''
+        while number != 0:
+            quotient = number // base
+            remainder = number % base
+            if remainder:
+                remainder = string.hexdigits[remainder]
+                result += str(remainder)
+                number = quotient
+            else:
+                result += str(remainder)
+                number = quotient
+        return (result[::-1])
+    # Encode number in any base (2 up to 36)
+    result = ''
+
+    while number != 0:
+        remainder = number % base
+        quotient = number // base
+        if remainder:
+            # Sets the remainder to the index of the list
+            remainder = string.printable[remainder]
+            # Add to string
+            result += str(remainder)
+            # Determines to keep looping
+            number = quotient
+        else:
+            result += str(remainder)
+            number = quotient
+    # Reverse the string
+    return (result[::-1])
 
 
 def convert(digits, base1, base2):
@@ -92,7 +139,6 @@ def convert(digits, base1, base2):
     # TODO: Convert digits from any base to any base (2 up to 36)
     # ...
 
-
 def main():
     """Read command-line arguments and convert given digits between bases."""
     import sys
@@ -111,6 +157,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    print(decode('0101', 2))
-    print(decode('c0ffee', 16))
-    print(decode('101101', 36))
+    print(encode(255, 16))
