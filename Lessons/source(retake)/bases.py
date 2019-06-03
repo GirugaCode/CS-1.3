@@ -17,12 +17,44 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # TODO: Decode digits from binary (base 2)
-    # ...
-    # TODO: Decode digits from hexadecimal (base 16)
-    # ...
-    # TODO: Decode digits from any base (2 up to 36)
-    # ...
+    # Decode digits from binary (base 2)
+    if base == 2: 
+        # Keep track of the sum of the numbers
+        sum = 0
+        # A variable for the power
+        power = len(digits) - 1
+
+        # Iterate through the list of digits
+        for num in digits:
+            # Create a reference to the index this will create the input digits
+            binary_index = string.digits.index(num)
+            # Increment the sum by the index of the loop times the base to the power
+            sum += binary_index * (base ** power)
+            # Decrement the power
+            power -= 1
+        # Return the sum
+        print("Base 2:", sum)
+    # Decode digits from hexadecimal (base 16)
+    if base == 16:
+        sum = 0
+        power = len(digits) - 1
+
+        for num in digits:
+            hex_index = string.hexdigits.index(num)        
+            sum += hex_index * (base ** power)
+            power -= 1
+        print("Base 16:", sum)
+
+    # Decode digits from any base (2 up to 36)
+    sum = 0
+    power = len(digits) - 1
+
+    for num in digits:
+        num_index = string.printable.index(num)
+        sum += num_index * (base ** power)
+        power -= 1
+    print("Base 2 to 36:", sum)
+    return sum
 
 
 def encode(number, base):
@@ -79,3 +111,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+    print(decode('0101', 2))
+    print(decode('c0ffee', 16))
+    print(decode('101101', 36))
