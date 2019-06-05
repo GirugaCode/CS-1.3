@@ -56,10 +56,10 @@ def binary_search_iterative(array, item):
         # Set the middle_index into a variable to change
         middle_value = array[middle_index]
 
-        # if item is already in the middle, return it
+        # if item is already in the middle WE FOUND IT, return it
         if item == middle_value:
             return middle_index
-        # if the item is more than the middle index then focus on the middle to right of th array
+        # if the item is more than the middle index then focus on the middle to right of the array
         if item > middle_value:
             first_index = middle_index + 1
         # if the item is less than the middle index then focus on the middle to left of the array
@@ -79,15 +79,16 @@ def binary_search_recursive(array, item, left=None, right=None):
 
     # Same logic for the iterative approach
     middle_index = (right + left) // 2
-    median_value = array[middle_index]
-
-    if item == median_value:
+    middle_value = array[middle_index]
+    
+    # if item is already in the middle WE FOUND IT, return it
+    if item == middle_value:
         return middle_index
-
-    if item > median_value:
+    # if the item is more than the middle index then focus on the middle to right of the array
+    if item > middle_value:
         left = middle_index + 1
-
-    if item < median_value:
+    # if the item is less than the middle index then focus on the middle to left of the array
+    if item < middle_value:
         right = middle_index - 1
 
     # if the left and right values collide, set the item to where it collided. Return
