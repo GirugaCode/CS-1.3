@@ -9,6 +9,8 @@ def linear_search(array, item):
 
 
 def linear_search_iterative(array, item):
+    # Runtime: O(n) 
+    # Condition: Where n is the number of items in the list
     # loop over all array values until item is found
     for index, value in enumerate(array):
         if item == value:
@@ -17,6 +19,8 @@ def linear_search_iterative(array, item):
 
 
 def linear_search_recursive(array, item, index=0):
+    # Runtime: O(n) 
+    # Condition: Where n is the number of items in the list
     # Returns None if the item is not in the array
     if item not in array:
         return None
@@ -37,6 +41,10 @@ def binary_search(array, item):
 
 
 def binary_search_iterative(array, item):
+    # Runtime: O(log(n)) 
+    # Condition: Where n is the number of items in the list 
+    # and runtime is continuously getting cut in half because of binary search
+
     # Setting up the first and last index of array
     first_index = 0
     last_index = len(array) - 1
@@ -60,6 +68,10 @@ def binary_search_iterative(array, item):
 
 
 def binary_search_recursive(array, item, left=None, right=None):
+    # Runtime: O(log(n)) 
+    # Condition: Where n is the number of items in the list 
+    # and runtime is continuously getting cut in half because of binary search
+    
     # Set the values of left and right as long as one of them are None
     if left == None or right == None:
         left = 0
