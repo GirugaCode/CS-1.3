@@ -19,9 +19,32 @@ def is_palindrome(text):
 
 def is_palindrome_iterative(text):
     # TODO: implement the is_palindrome function iteratively here
-    pass
     # once implemented, change is_palindrome to call is_palindrome_iterative
     # to verify that your iterative implementation passes all tests
+    
+    left = 0
+    right = len(text) - 1
+    
+
+    # While loop until we completed the pointing of both sides of the text
+    while left < right:
+        text = text.lower()
+        # If the left pointer sees a punctuation or a space, skip it.
+        while text[left] in string.punctuation + ' ':
+            left += 1
+        # If the right pointer sees a punctuation or a space, skip it.
+        while text[right] in string.punctuation + ' ':
+            right -= 1
+        # Return False if the first and last indexes to not match
+        if text[left] != text[right]:
+            return False
+        # Continue pointing left and right
+        left += 1
+        right -= 1
+    return True
+        
+    
+
 
 
 def is_palindrome_recursive(text, left=None, right=None):
