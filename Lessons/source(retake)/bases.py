@@ -48,12 +48,20 @@ def decode(digits, base):
         print("Base 16:", sum)
 
     # Decode digits from any base (2 up to 36)
+    # Keep tracks of the sum of the decoded number
     sum = 0
+    # Captures the power we need to mulitply with by the length of the list
     power = len(digits) - 1
 
+    # Iterate through the list of digits
     for num in digits:
+        # Gather up all the numbers and ascii letters and get the index for the num
+        # Gets the index of the number we are looping through
         num_index = string.printable.index(num)
+        print("num_index:", num_index)
+        # Multiply the digits of the argument to the base ** power (num_index(base^power))
         sum += num_index * (base ** power)
+        # Decrease power for every iteration to maintain the decode
         power -= 1
     print("Base 2 to 36:", sum)
     return sum
@@ -105,7 +113,9 @@ def encode(number, base):
     result = ''
 
     while number != 0:
+        # Created the remainder by getting the mod of number and base
         remainder = number % base
+        # Divides the number with the base and ignores the remainder
         quotient = number // base
         if remainder:
             # Sets the remainder to the index of the list

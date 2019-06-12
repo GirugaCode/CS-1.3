@@ -42,9 +42,6 @@ def is_palindrome_iterative(text):
         left += 1
         right -= 1
     return True
-        
-    
-
 
 
 def is_palindrome_recursive(text, left=None, right=None):
