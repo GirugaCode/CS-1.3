@@ -20,5 +20,5 @@ all_words = set(words)
 
 list_of_permutations = permutations(['1','2','3'])
 
-# print(permutations(['T','E','F','O','N']))
+print(permutations(['T','E','F','O','N']))
 # print(all_words)
