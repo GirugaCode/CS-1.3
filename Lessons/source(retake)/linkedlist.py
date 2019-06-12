@@ -99,7 +99,7 @@ class LinkedList(object):
         # Check if the given index is out of range and if so raise an error
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
-            
+
         # Checks if we want to insert the item in the beginning
         if index == 0:
             self.prepend(item)
@@ -175,8 +175,18 @@ class LinkedList(object):
         using the same node, or raise ValueError if old_item is not found.
         Best case running time: ??? under what conditions? [TODO]
         Worst case running time: ??? under what conditions? [TODO]"""
-        # TODO: Find the node containing the given old_item and replace its
-        # data with new_item, without creating a new node object
+
+        # Instatiate what the current node is
+        current_node = self.head 
+        # Traversing through the linked list until you find the old_item
+        while current_node is not None: 
+            if current_node.data == old_item: 
+                # Set the current node in this instance as a new_item
+                current_node.data = new_item
+                return 
+            # Keep pointing to the next node until old one is found 
+            current_node = current_node.next
+        raise ValueError('Item not found: {}'.format(old_item)) # old item was not found raise error
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
