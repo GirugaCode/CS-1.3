@@ -27,7 +27,11 @@ def find_index(text, pattern):
     
     for index, _ in enumerate(text):
         try:
-            if pattern == text[index: (index + len(pattern))]:
+            if pattern == text[index: index + len(pattern)]:
+                print("Pattern:", pattern)
+                print("Text:", text[index: (index + len(pattern))])
+                print("Test Text:", text[2: 5])
+                print("Index:", index)
                 return index
         except:
             return 0
@@ -92,3 +96,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    print(find_index('ababc', 'abc'))
