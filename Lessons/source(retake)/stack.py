@@ -34,7 +34,8 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) because it will insert the item at the top of the stack.
+        It is not moving data in that process."""
         # Push given item
         self.list.prepend(item)
 
@@ -50,7 +51,9 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) Since we always know the last item of the Stack we can 
+        pop it out in constant time."""
+
         # Checks if the stack is empty
         if self.is_empty():
             raise ValueError("Stack is Empty")
@@ -81,7 +84,7 @@ class ArrayStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        # TODO: Check if empty
+        # Check if empty
         if len(self.list) == 0:
             return True
         else:
@@ -89,19 +92,20 @@ class ArrayStack(object):
 
     def length(self):
         """Return the number of items in this stack."""
-        # TODO: Count number of items
+        # Count number of items
         return len(self.list)
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
-        # TODO: Insert given item
+        Running time: O(1) Because we are just adding an item to the top of the Stack
+        in constant time."""
+        # Insert given item
         self.list.append(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        # TODO: Return top item, if any
+        # Return top item, if any
         if self.is_empty():
             return None
         else:
@@ -110,7 +114,8 @@ class ArrayStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(n) Where n is the number of elements we have to move up in
+        the stack after we pop the last element"""
         # TODO: Remove and return top item, if any
         if self.is_empty():
             raise ValueError("Stack is Empty")
