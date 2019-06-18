@@ -116,7 +116,7 @@ class ArrayStack(object):
         or raise ValueError if this stack is empty.
         Running time: O(n) Where n is the number of elements we have to move up in
         the stack after we pop the last element"""
-        # TODO: Remove and return top item, if any
+        # Remove and return top item, if any
         if self.is_empty():
             raise ValueError("Stack is Empty")
         else:
