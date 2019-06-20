@@ -25,13 +25,12 @@ def find_index(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     
+    # Looping through the text with the indexes split between the text
     for index, _ in enumerate(text):
         try:
-            if pattern == text[index: index + len(pattern)]:
-                print("Pattern:", pattern)
-                print("Text:", text[index: (index + len(pattern))])
-                print("Test Text:", text[2: 5])
-                print("Index:", index)
+            # Checks to see if the pattern matches the text[indicies] 
+            # as we iterate through the index
+            if pattern == text[index: index + len(pattern)]: # text[1: 3]
                 return index
         except:
             return 0
