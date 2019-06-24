@@ -97,24 +97,25 @@ class BinarySearchTree(object):
         TODO: Best case running time: ??? under what conditions?
         TODO: Worst case running time: ??? under what conditions?"""
         # Handle the case where the tree is empty
+        new_node = BinaryTreeNode(item)
         if self.is_empty():
-            # TODO: Create a new root node
-            self.root = ...
-            # TODO: Increase the tree size
-            self.size ...
+            # Create a new root node
+            self.root = new_node
+            # Increase the tree size
+            self.size += 1
             return
         # Find the parent node of where the given item should be inserted
         parent = self._find_parent_node_recursive(item, self.root)
-        # TODO: Check if the given item should be inserted left of parent node
-        if ...:
-            # TODO: Create a new node and set the parent's left child
-            parent.left = ...
-        # TODO: Check if the given item should be inserted right of parent node
-        elif ...:
-            # TODO: Create a new node and set the parent's right child
-            parent.right = ...
-        # TODO: Increase the tree size
-        self.size ...
+        # Check if the given item should be inserted left of parent node
+        if item < parent.data:
+            # Create a new node and set the parent's left child
+            parent.left = new_node
+        # Check if the given item should be inserted right of parent node
+        elif item > parent.data:
+            # Create a new node and set the parent's right child
+            parent.right = new_node
+        # Increase the tree size
+        self.size += 1
 
     def _find_node_iterative(self, item):
         """Return the node containing the given item in this binary search tree,
