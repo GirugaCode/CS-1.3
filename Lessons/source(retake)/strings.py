@@ -3,47 +3,52 @@
 def contains(text, pattern):
     """
     Return a boolean indicating whether pattern occurs in text.
+    Input: 'spongebob', 'bob'
+    Output: True
+
     Runtime: O(n)
     Condition: Where n is the number of texts we have to traverse through.
     """
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     
-    index = find_index(text, pattern)
-    if index is not None:
-        return True
-    return False
+    index = find_all_indexes(text, pattern) # true case: [0, 1, 6] false case: []
+    if index == []:
+        return False
+    return True
 
 
 def find_index(text, pattern):
     """
     Return the starting index of the first occurrence of pattern in text,
     or None if not found.
+    Input: "text", "ex"
+    Output: 1
+
     Runtime: O(n)
     Condition: Where n is the number of texts we have to traverse through.
     """
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    
-    # Looping through the text with the indexes split between the text
-    for index, _ in enumerate(text):
-        try:
-            # Checks to see if the pattern matches the text[indicies] 
-            # as we iterate through the index
-            if pattern == text[index: index + len(pattern)]: # text[1: 3]
-                return index
-        except:
-            return 0
-    return None
 
+    indicies = find_all_indexes(text, pattern)
+    if len(indicies) > 0:
+        return indicies[0]
+    else:
+        return None
 
 def find_all_indexes(text, pattern):
     """
     Return a list of starting indexes of all occurrences of pattern in text,
     or an empty list if not found.
+    Input: "abcabcabc", "abc"
+    Output: [0, 3, 6]
 
-    Runtime: O(n)
-    Condition: Where n is the number of texts we have to traverse through.
+    Best Case: O(1)
+    Condition: The pattern and the text are the exact same.
+    Worst Case: O(n * m)
+    Condition: Where n is the number of texts we have to traverse through and m is the amount
+    of times we have to back track on the pattern.
     """
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)

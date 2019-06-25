@@ -155,17 +155,17 @@ class BinarySearchTree(object):
         if node is None:
             # Not found (base case)
             return None
-        # TODO: Check if the given item matches the node's data
+        # Check if the given item matches the node's data
         elif item == node.data:
             # Return the found node
             return node
-        # TODO: Check if the given item is less than the node's data
+        # Check if the given item is less than the node's data
         elif item < node.data:
-            # TODO: Recursively descend to the node's left child, if it exists
+            # Recursively descend to the node's left child, if it exists
             return self._find_node_recursive(item, node.left)
-        # TODO: Check if the given item is greater than the node's data
+        # Check if the given item is greater than the node's data
         elif item > node.data:
-            # TODO: Recursively descend to the node's right child, if it exists
+            # Recursively descend to the node's right child, if it exists
             return self._find_node_recursive(item, node.right)
 
     def _find_parent_node_iterative(self, item):
