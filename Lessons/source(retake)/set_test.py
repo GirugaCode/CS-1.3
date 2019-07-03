@@ -1,4 +1,4 @@
-from set import Set
+from sets import Set
 import unittest
 
 if not hasattr(unittest.TestCase, 'assertCountEqual'):
