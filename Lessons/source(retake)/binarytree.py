@@ -108,7 +108,7 @@ class BinarySearchTree(object):
             self.size += 1
             return
         # Find the parent node of where the given item should be inserted
-        parent = self._find_parent_node_iterative(item)
+        parent = self._find_parent_node_recursive(item, self.root)
         # Check if the given item should be inserted left of parent node
         if item < parent.data:
             # Create a new node and set the parent's left child
@@ -153,12 +153,12 @@ class BinarySearchTree(object):
         Worst case running time: O(n) Traverse through the tree until we found the node we want"""
         # Check if starting node exists
         if node is None:
-            # Not found (base case)
+            # Not found 
             return None
         # Check if the given item matches the node's data
         elif item == node.data:
             # Return the found node
-            return node
+            return node # (base case)
         # Check if the given item is less than the node's data
         elif item < node.data:
             # Recursively descend to the node's left child, if it exists
@@ -213,10 +213,14 @@ class BinarySearchTree(object):
             return parent
         # Check if the given item is less than the node's data
         elif item < node.data:
+            if not node.left:
+                return node
             # Recursively descend to the node's left child, if it exists
             return self._find_parent_node_recursive(item, node.left, node)  # Hint: Remember to update the parent parameter
         # Check if the given item is greater than the node's data
         elif item > node.data:
+            if not node.right:
+                return node
             # Recursively descend to the node's right child, if it exists
             return self._find_parent_node_recursive(item, node.right, node)  # Hint: Remember to update the parent parameter
 
